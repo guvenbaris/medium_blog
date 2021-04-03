@@ -10,8 +10,11 @@ data = pd.read_csv("maaslar.csv")
 
 # Bağımsız değişkenimiz eğitim seviyesi olacak
 # Bağımlı değişkenimiz maas
-x = data["Egitim Seviyesi"]
-y = data["maas"]
+x = data["Egitim Seviyesi"].values
+y = data["maas"].values
+
+# x'i iki boyutlu matris haline getirdik
+x = x.reshape(-1,1)
 
 # PolynominalFeatures'dan nesne ürettik degree 4 olarak belirledik. 
 poly_reg = PolynomialFeatures(degree = 4)
